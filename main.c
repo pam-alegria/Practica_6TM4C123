@@ -2,11 +2,12 @@
 
 int main(void)
 {
-    uint16_t valor = 0;
+    //uint16_t valor = 0;
     char c='5';
+    //char Nombre[] = 0;
     //char b='a';
-    Configurar_PLL(_20MHZ);  //Confiuracion de velocidad de reloj
-    Configurar_UART0();//Yo FCLK 20MHZ Baudrate 9600
+    Configurar_PLL(_50MHZ);  //Confiuracion de velocidad de reloj
+    Configurar_UART2();//Yo FCLK 80MHZ Baudrate 19200
 
     //Experimento 1
     //  Configurar_UART1(); //Jorge,Alberto,Navarro,Saul,Fabela -fclk 25MHZ Baud-rate 57600
@@ -19,11 +20,12 @@ int main(void)
     Configurar_GPIO();
    // Homogeneidad();
     //printString("Holis Bolis");
-    printChar(c);
+    //printChar(c);
     //printChar(b);
-    printString("\n");
+    //printString("\n");
    // char *arr = readString(',');
    // printString(&arr[0]);
+   /*
     while(1)
     {
          c = readChar();
@@ -55,4 +57,23 @@ int main(void)
                  break;
          }
     }
+    */
+    
+    
+    
+
+    // Lectura de nombre
+    
+    while (1)
+    {
+        int i = 0;
+        char string[20] = "NULL";
+        i = readString('%', string);
+        invertirString(string, i);
+        char num[i*2];
+        agregarNumeros(string, num, i);
+        printString(num);
+    }
+    
+    
 }
