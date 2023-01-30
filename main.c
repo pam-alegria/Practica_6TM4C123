@@ -11,8 +11,6 @@ int main(void)
     // Main loop
     while(1)
     {
-        uint32_t adcValue1 = readADC0();
-        uint32_t adcValue2 = readADC0();
 
         while ((ADC0->RIS & 0x1) == 0)
         {
